@@ -1,4 +1,7 @@
 # plot1.R
 
 data <- read.table("household_power_consumption.txt", sep=";", header = TRUE)
-hist(as.numeric(data$Global_active_power), col="red") 
+index <- c(which(data$Date == "1/2/2007"), which(data$Date == "2/2/2007"))
+# pdata <- as.numeric(data[index, 3])
+pdata <- as.numeric(data$Global_active_power[index])
+hist(pdata, col="red", xlab="Global Active Power (kilowatts)", main = "Global Active Power")
