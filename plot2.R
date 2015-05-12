@@ -1,20 +1,14 @@
 # plot2.R
 
 # read data
-# hpcdata <- read.table("household_power_consumption.txt", sep=";", header = TRUE)
+hpcdata <- read.table("household_power_consumption.txt", sep=";", header = TRUE)
 
 # subset data
 date1 <- "1/2/2007"
 date2 <- "2/2/2007"
-
-# idx1 <- min(which(hpcdata$Date == date1))
-# idx2 <- max(which(hpcdata$Date == date2))
-# index <- seq(idx1,idx2,by=1)
-
 idx1 <- which(hpcdata$Date == date1)
 idx2 <- which(hpcdata$Date == date2)
 index <- seq(head(idx1,1),tail(idx2,1),by=1) # index <- c(idx1, idx2)
-
 pdata <- as.numeric(paste(hpcdata$Global_active_power[index]))
 
 # Graphics device for PNG
