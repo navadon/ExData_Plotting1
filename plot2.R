@@ -8,7 +8,7 @@ date1 <- "1/2/2007"
 date2 <- "2/2/2007"
 idx1 <- which(hpcdata$Date == date1)
 idx2 <- which(hpcdata$Date == date2)
-index <- c(idx1, idx2)
+index <- seq(head(idx1,1),tail(idx2,1),by=1) # index <- c(idx1, idx2)
 pdata <- as.numeric(paste(hpcdata$Global_active_power[index]))
 
 # Graphics device for PNG
@@ -27,5 +27,6 @@ xaxislabels <- weekdays(c(d1,d1+1,d1+2),abbreviate=TRUE)
 # apply x-axis settings
 axis(1, at=xaxisat, labels=xaxislabels)
 
+# close graphics device
 dev.off()
 
