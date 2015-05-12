@@ -22,7 +22,8 @@ xaxisat <- c(0,length(idx1),(length(idx1)+length(idx2)))
 
 # set x-axis labels
 d1 <- as.Date(date1,"%d/%m/%Y")
-xaxislabels <- weekdays(c(d1,d1+1,d1+2),abbreviate=TRUE)
+d2 <- as.Date(date2,"%d/%m/%Y")
+xaxislabels <- weekdays(seq(d1,d2+1,1),abbreviate=TRUE)
 
 # apply x-axis settings
 axis(1, at=xaxisat, labels=xaxislabels)
